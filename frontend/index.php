@@ -3,446 +3,390 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Shop</title>
+  <title>Bag Store - Home</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <header class="nav">
-    <a href="index.php" class="logo">My<span>Shop</span></a>
-    <div class="location">
-      <p>Deliver to</p>
-      <h4>Mumbai 400001</h4>
+
+  <header class="site-header">
+    <a href="index.php" class="logo">Bag<span>Store</span></a>
+
+    <nav class="nav">
+      <a href="index.php" class="active">Home</a>
+
+      <div class="dropdown">
+        <a href="bags.php" class="drop-btn">
+          Bags <span class="drop-icon">▾</span>
+        </a>
+
+        <div class="dropdown-menu">
+          <a href="all-bags.php?category=all">All Bags</a>
+          <a href="travel-bags.php?category=travel">Travel Bags</a>
+          <a href="kids-bags.php?category=kids">Kids Bags</a>
+          <a href="school-bags.php?category=school">School Bags</a>
+          <a href="college-bags.php?category=college">College Bags</a>
+          <a href="office-bags.php?category=office">Office Bags</a>
+          <a href="ladies-bags.php?category=ladies">Ladies Bags</a>
+          <a href="laptop-bags.php?category=laptop">Laptop Bags</a>
+          <a href="hand-bags.php?category=hand">Hand Bags</a>
+          <a href="tote-bags.php?category=tote">Tote Bags</a>
+          <a href="gym-bags.php?category=gym">Gym Bags</a>
+          <a href="party-bags.php?category=party">Party Bags</a>
+          <a href="mini-bags.php?category=mini">Mini Bags</a>
+          <a href="trolley-bags.php?category=trolley">Trolley Bags</a>
+        </div>
+      </div>
+
+      <a href="product.php">Product</a>
+      <a href="wishlist.php">Wishlist</a>
+      <a href="cart.php">Cart <span class="cart-count">0</span></a>
+      <a href="contact.php">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.php" class="auth-btn login-btn">Login</a>
     </div>
 
-    <div class="search">
-      <select aria-label="Category">
-        <option>All</option>
-        <option>Books</option>
-        <option>Electronics</option>
-        <option>Clothing</option>
-        <option>Home & Kitchen</option>
-        <option>Sports & Outdoors</option>
-        <option>Beauty & Personal Care</option>
-        <option>Health & Household</option>
-        <option>Automotive</option>
-        <option>Shoes</option>
-      </select>
-
-      <input type="text" placeholder="Search My Shop" />
-      <button type="button" aria-label="Search">🔍</button>
-    </div>
-
-    <div class="menu">
-      <div class="menu-box">
-        <a href="/SHOP/admin/login.php">sign in</a>
-        
-      </div>
-
-      <div class="menu-box">
-        <p>Returns</p>
-        <b>& Orders</b>
-      </div>
-
-      <div class="cart">
-        <span class="cart-icon">🛒</span>
-        <span class="cart-count">0</span>
-        <span>Cart</span>
-      </div>
+    <div class="nav-actions">
+      <a href="bags.php" class="mini-btn">Shop Now</a>
     </div>
   </header>
 
-  <div class="category-bar">
-    <div class="category-left">
-      <span class="menu-icon">☰</span>
-      <b>All</b>
-    </div>
-
-    <div class="category-links">
-       <a href="index.php">Home</a>
-      <a href="Fresh.php">Fresh</a>
-      <a href="about.php">About us </a>
-      <a href="Bestsellers.php">Bestsellers</a>
-      <a href="mobile.php">Mobiles</a>
-      <a href="custom.php">Customer Service</a>
-      <a href="todaydeal.php">Today's Deals</a>
-      <a href="fashion.php">Fashion</a>
-      <a href="electronics.php">Electronics</a>
-      <a href="homeandkitchen.php">Home & Kitchen</a>
-      <a href="computers.php">Computers</a>
-      <a href="books.php">Books</a>
-      <a href="toysandgame.php">Toys & Games</a>
-      <a href="sportsandoutdoor.php">Sports & Outdoors</a>
-      <a href="beauty.php">Beauty & Personal Care</a>
-      <a href="shoes.php">Shoes</a>
-      <a href="sell.php">sell Products</a>
-    </div>
-  </div>
-
-  <section class="slider">
-    <div class="slider-box">
-      <button class="slider-btn prev" type="button" aria-label="Previous">‹</button>
-
-      <div class="slides">
-        <div class="slide active">
-          <img class="slide-img" src="https://t4.ftcdn.net/jpg/04/71/47/31/360_F_471473166_B8t0Z2OZDGrkk5T2UEOR9KgVhqSovmxS.jpg" alt="Mega Deals">
-          <div class="slide-content">
-            <h2>Mega Deals on My Shop</h2>
-            <p>Best prices on electronics, fashion, and daily essentials.</p>
-            <div class="slide-actions">
-              <a class="slide-link" href="#">Shop Deals</a>
-              <a class="slide-link2" href="#">Explore</a>
-            </div>
+  <section class="slider-section reveal">
+    <div class="slider">
+      <div class="slide active">
+        <div class="slide-text">
+          <span class="small-tag">New arrival</span>
+          <h1>Smart bags made for daily life</h1>
+          <p>Stylish designs for office, college, travel and everyday comfort.</p>
+          <div class="hero-buttons">
+            <a href="bags.php" class="btn btn-main">Shop Collection</a>
+            <a href="about.php" class="btn btn-light">Know Our Story</a>
           </div>
         </div>
-
-        <div class="slide">
-          <img class="slide-img" src="https://static.vecteezy.com/system/resources/previews/058/340/429/large_2x/shopping-online-excited-girl-holding-credit-card-and-paper-bags-over-turquoise-studio-wall-copyspace-photo.jpg" alt="Fast Delivery">
-          <div class="slide-content">
-            <h2>Fast Delivery</h2>
-            <p>Quick shipping with safe packaging across your city.</p>
-            <div class="slide-actions">
-              <a class="slide-link" href="#">Start Shopping</a>
-              <a class="slide-link2" href="#">Track Order</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide">
-          <img class="slide-img" src="https://media.istockphoto.com/id/1203642900/photo/beautiful-asian-woman-shopping-online-with-mobile-phone-on-banner-background.jpg?s=170667a&w=0&k=20&c=i_eNt1zRTic-bDjnRqJOFwwQKwSPLSEIR8XGNyxDWnU=" alt="Easy Returns">
-          <div class="slide-content">
-            <h2>Easy Returns</h2>
-            <p>Hassle-free returns and quick support when you need it.</p>
-            <div class="slide-actions">
-              <a class="slide-link" href="#">Learn More</a>
-              <a class="slide-link2" href="#">Contact Support</a>
-            </div>
-          </div>
+        <div class="slide-image">
+          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=80" alt="Bag">
         </div>
       </div>
 
-      <button class="slider-btn next" type="button" aria-label="Next">›</button>
+      <div class="slide">
+        <div class="slide-text">
+          <span class="small-tag">Office edit</span>
+          <h1>Premium office bags with clean look</h1>
+          <p>Carry your laptop, notebook and essentials with style and comfort.</p>
+          <div class="hero-buttons">
+            <a href="bags.php" class="btn btn-main">View Office Bags</a>
+            <a href="product.php" class="btn btn-light">View Product</a>
+          </div>
+        </div>
+        <div class="slide-image">
+          <img src="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=1200&q=80" alt="Office bag">
+        </div>
+      </div>
 
-      <div class="dots">
-        <span class="dot active" data-slide="0"></span>
-        <span class="dot" data-slide="1"></span>
-        <span class="dot" data-slide="2"></span>
+      <div class="slide">
+        <div class="slide-text">
+          <span class="small-tag">Travel line</span>
+          <h1>Travel bags with more space and easy carry</h1>
+          <p>Designed for quick trips, long days and better storage everywhere.</p>
+          <div class="hero-buttons">
+            <a href="bags.php" class="btn btn-main">Explore Travel Bags</a>
+            <a href="contact.php" class="btn btn-light">Talk to Us</a>
+          </div>
+        </div>
+        <div class="slide-image">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80" alt="Travel bag">
+        </div>
+      </div>
+
+      <button class="slider-arrow prev">&#10094;</button>
+      <button class="slider-arrow next">&#10095;</button>
+      <div class="slider-dots"></div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="section-head">
+      <span class="section-tag">Our types</span>
+      <h2>Find the right bag by use</h2>
+      <p>Choose from designs made for work, city life, college and travel.</p>
+    </div>
+
+    <div class="card-grid four-grid">
+      <div class="category-card hover-up">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80" alt="Hand bags">
+        <div class="card-body">
+          <h3>Hand Bags</h3>
+          <p>Minimal and stylish pieces for daily looks.</p>
+        </div>
+      </div>
+
+      <div class="category-card hover-up">
+        <img src="https://images.unsplash.com/photo-1563904095333-b8f73cf2a349?auto=format&fit=crop&w=900&q=80" alt="Backpacks">
+        <div class="card-body">
+          <h3>Backpacks</h3>
+          <p>Made for college, work and comfort on the move.</p>
+        </div>
+      </div>
+
+      <div class="category-card hover-up">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80" alt="Mini bags">
+        <div class="card-body">
+          <h3>Mini Bags</h3>
+          <p>Small size, clean fashion and easy carrying style.</p>
+        </div>
+      </div>
+
+      <div class="category-card hover-up">
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80" alt="Travel bags">
+        <div class="card-body">
+          <h3>Travel Bags</h3>
+          <p>More room, stronger body and smooth travel support.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <main class="home-page">
-    <section class="home-grid">
-
-      <div class="home-card">
-        <h2>Continue shopping deals</h2>
-        <div class="big-image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80" alt="Deals">
-        </div>
-        <a href="#">See more deals</a>
-      </div>
-
-      <div class="home-card">
-        <h2>Revamp your home in style</h2>
-        <div class="home-mini-grid">
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Cushion covers">
-            <span>Cushion covers</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80" alt="Figurines">
-            <span>Figurines</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1583845112203-454b1f7f7b5d?auto=format&fit=crop&w=800&q=80" alt="Home storage">
-            <span>Home storage</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Lighting">
-            <span>Lighting solutions</span>
-          </div>
-        </div>
-        <a href="#">Explore all</a>
-      </div>
-
-      <div class="home-card">
-        <h2>Up to 50% off on essentials</h2>
-        <div class="home-mini-grid">
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Mobiles">
-            <span>Mobiles</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Watches">
-            <span>Watches</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Headphones">
-            <span>Headphones</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=80" alt="Accessories">
-            <span>Accessories</span>
-          </div>
-        </div>
-        <a href="#">See all offers</a>
-      </div>
-
-      <div class="home-card sign-card">
-        <h2>Sign in for your best experience</h2>
-        <button type="button">Sign in securely</button>
-      </div>
-
-      <div class="home-card">
-        <h2>Appliances for your home | Up to 55% </h2>
-        <div class="home-mini-grid">
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80" alt="Air conditioners">
-            <span>Air conditioners</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80" alt="Refrigerators">
-            <span>Refrigerators</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80" alt="Microwaves">
-            <span>Microwaves</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80" alt="Washing machines">
-            <span>Washing machines</span>
-          </div>
-        </div>
-        <a href="#">See more</a>
-      </div>
-
-      <div class="home-card">
-        <h2>Starting ₹49 | Deals on home essentials</h2>
-        <div class="home-mini-grid">
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1583947582886-f40ec95dd752?auto=format&fit=crop&w=800&q=80" alt="Cleaning supplies">
-            <span>Cleaning supplies</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80" alt="Bathroom">
-            <span>Bathroom accessories</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Home tools">
-            <span>Home tools</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80" alt="Wallpapers">
-            <span>Wallpapers</span>
-          </div>
-        </div>
-        <a href="#">Explore all</a>
-      </div>
-
-      <div class="home-card">
-        <h2>Up to 50% off | Baby care & toys</h2>
-        <div class="home-mini-grid">
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80" alt="Baby care">
-            <span>Baby care</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Ride ons">
-            <span>Ride ons</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80" alt="Toy cars">
-            <span>Toy cars</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?auto=format&fit=crop&w=800&q=80" alt="Safety">
-            <span>Safety</span>
-          </div>
-        </div>
-        <a href="#">See all offers</a>
-      </div>
-
-      <div class="home-card">
-        <h2>Starting ₹199 | My Shop Brands & more</h2>
-        <div class="home-mini-grid">
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Bedsheets">
-            <span>Bedsheets</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Curtains">
-            <span>Curtains</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69?auto=format&fit=crop&w=800&q=80" alt="Iron board">
-            <span>Iron board</span>
-          </div>
-          <div class="mini-item">
-            <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=800&q=80" alt="Decor">
-            <span>Decor</span>
-          </div>
-        </div>
-        <a href="#">See more</a>
-      </div>
-
-    </section>
-
-    <section class="strip-section">
-      <div class="strip-head">
-        <h2>More items to consider</h2>
-        <a href="#">See more</a>
-      </div>
-
-      <div class="product-strip">
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=500&q=80" alt="Bag"></div>
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=500&q=80" alt="Bag"></div>
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Shoes"></div>
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" alt="Fashion"></div>
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Headphones"></div>
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" alt="Watch"></div>
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80" alt="Phone"></div>
-        <div class="strip-item"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=500&q=80" alt="Sneakers"></div>
-      </div>
-    </section>
-
-    <section class="product-row">
-      <div class="strip-head">
-        <h2>Inspired by your browsing history</h2>
-        <a href="#">Page 1 of 6</a>
-      </div>
-
-      <div class="product-list">
-        <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Earbuds">
-          <h3>Wireless Earbuds with Noise Cancellation</h3>
-          <div class="rating">★★★★★ <span>1,234</span></div>
-          <p class="price">₹1,799</p>
-          <p class="small-line">FREE Delivery</p>
-        </article>
-
-        <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" alt="Watch">
-          <h3>Smart Watch with Fitness Tracking</h3>
-          <div class="rating">★★★★☆ <span>795</span></div>
-          <p class="price">₹999</p>
-          <p class="small-line">Limited time deal</p>
-        </article>
-
-        <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=500&q=80" alt="Screen protector">
-          <h3>Tempered Glass Protector for Watch</h3>
-          <div class="rating">★★★★☆ <span>3,859</span></div>
-          <p class="price">₹299</p>
-          <p class="small-line">Best Seller</p>
-        </article>
-
-        <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=500&q=80" alt="Case">
-          <h3>Premium Watch Case Compatible Design</h3>
-          <div class="rating">★★★★☆ <span>941</span></div>
-          <p class="price">₹548</p>
-          <p class="small-line">FREE Delivery</p>
-        </article>
-
-        <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Shoes">
-          <h3>Comfortable Running Shoes for Men</h3>
-          <div class="rating">★★★★★ <span>2,272</span></div>
-          <p class="price">₹1,699</p>
-          <p class="small-line">Limited time deal</p>
-        </article>
-
-        <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" alt="Shirt">
-          <h3>Casual Fashion Shirt for Everyday Wear</h3>
-          <div class="rating">★★★★☆ <span>1,102</span></div>
-          <p class="price">₹799</p>
-          <p class="small-line">FREE Delivery</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="recommend-box">
-      <h2>See personalized recommendations</h2>
-      <button type="button" onclick="window.location.href='/SHOP/admin/login.php'">Pre-Registered user</button>
-      <p>New customer? <a href="/SHOP/admin/register.php">Make account</a></p>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-top">Back to top</div>
-
-    <div class="footer-main">
-      <div class="footer-column">
-        <h3>Get to Know Us</h3>
-        <a href="/Shop/frontend/about.php">About My Shop</a>
-        <a href="#">Careers</a>
-        <a href="#">Press Releases</a>
-        <a href="#">My Shop Science</a>
-      </div>
-
-      <div class="footer-column">
-        <h3>Connect With Us</h3>
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-      </div>
-
-      <div class="footer-column">
-        <h3>Make Money with Us</h3>
-        <a href="#">Sell on My Shop</a>
-        <a href="#">Sell under My Shop Accelerator</a>
-        <a href="#">Become an Affiliate</a>
-        <a href="#">Advertise Your Products</a>
-      </div>
-
-      <div class="footer-column">
-        <h3>Let Us Help You</h3>
-        <a href="#">Your Account</a>
-        <a href="#">Returns Centre</a>
-        <a href="#">100% Purchase Protection</a>
-        <a href="#">Help</a>
-      </div>
+  <section class="section light-bg reveal">
+    <div class="section-head">
+      <span class="section-tag">Featured now</span>
+      <h2>Bags people are buying most</h2>
+      <p>Best selling styles with premium look and useful space.</p>
     </div>
 
-    <div class="footer-bottom">
-      <div class="footer-logo">My<span>Shop</span></div>
-      <p>© 2026 MyShop.com, Inc. All rights reserved.</p>
+    <div class="product-grid">
+      <div class="product-card hover-up">
+        <span class="badge">New</span>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Brown bag">
+        <div class="product-info">
+          <h3>Classic Brown Bag</h3>
+          <p>Elegant shape with neat inner storage.</p>
+          <div class="price-row">
+            <span class="price">$49</span>
+            <span class="old-price">$61</span>
+          </div>
+          <div class="card-actions">
+            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Classic Brown Bag" data-price="49" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card hover-up">
+        <span class="badge">Top</span>
+        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=80" alt="Black bag">
+        <div class="product-info">
+          <h3>Modern Black Bag</h3>
+          <p>Clean office style with easy laptop carry.</p>
+          <div class="price-row">
+            <span class="price">$59</span>
+            <span class="old-price">$72</span>
+          </div>
+          <div class="card-actions">
+            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Modern Black Bag" data-price="59" data-image="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card hover-up">
+        <span class="badge">-20%</span>
+        <img src="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=900&q=80" alt="Office bag">
+        <div class="product-info">
+          <h3>Office Leather Bag</h3>
+          <p>Sharp design for everyday professional use.</p>
+          <div class="price-row">
+            <span class="price">$64</span>
+            <span class="old-price">$80</span>
+          </div>
+          <div class="card-actions">
+            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Office Leather Bag" data-price="64" data-image="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card hover-up">
+        <span class="badge">Hot</span>
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80" alt="Travel carry bag">
+        <div class="product-info">
+          <h3>Travel Carry Bag</h3>
+          <p>Spacious storage for trips and weekend use.</p>
+          <div class="price-row">
+            <span class="price">$68</span>
+            <span class="old-price">$81</span>
+          </div>
+          <div class="card-actions">
+            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Travel Carry Bag" data-price="68" data-image="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="big-banner reveal">
+    <div class="big-banner-content">
+      <span class="section-tag">Made with care</span>
+      <h2>Luxury feel with useful design</h2>
+      <p>From clean finishing to smart compartments, every bag is designed to look good and work better.</p>
+      <a href="about.php" class="btn btn-main">About Our Brand</a>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="stats-grid">
+      <div class="stat-box hover-up">
+        <h3>12K+</h3>
+        <p>Happy buyers</p>
+      </div>
+      <div class="stat-box hover-up">
+        <h3>250+</h3>
+        <p>Bag styles</p>
+      </div>
+      <div class="stat-box hover-up">
+        <h3>4.9</h3>
+        <p>Average rating</p>
+      </div>
+      <div class="stat-box hover-up">
+        <h3>24/7</h3>
+        <p>Support help</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="two-col">
+      <div class="image-panel hover-up">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80" alt="Bag detail">
+      </div>
+      <div class="text-panel">
+        <span class="section-tag">Why choose us</span>
+        <h2>More than a simple bag shop</h2>
+        <p>We mix style, storage and comfort into bags that match real daily life. Every design is made to feel premium and stay useful.</p>
+
+        <div class="feature-list">
+          <div class="feature-item hover-up">
+            <h3>Premium look</h3>
+            <p>Simple shapes and rich colors that feel modern.</p>
+          </div>
+          <div class="feature-item hover-up">
+            <h3>Smart inner space</h3>
+            <p>Separate sections for laptop, wallet, charger and more.</p>
+          </div>
+          <div class="feature-item hover-up">
+            <h3>Comfort first</h3>
+            <p>Soft handles and balanced weight for long carry time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-bg reveal">
+    <div class="section-head">
+      <span class="section-tag">More to see</span>
+      <h2>Shop by mood and moment</h2>
+      <p>Pick the bag that fits your day best.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card hover-up">
+        <h3>For office</h3>
+        <p>Smart bags with laptop room, neat finish and formal look.</p>
+      </div>
+      <div class="info-card hover-up">
+        <h3>For college</h3>
+        <p>Lightweight backpacks with easy storage and daily comfort.</p>
+      </div>
+      <div class="info-card hover-up">
+        <h3>For travel</h3>
+        <p>More capacity, stronger handles and quick-access pockets.</p>
+      </div>
+      <div class="info-card hover-up">
+        <h3>For gifting</h3>
+        <p>Beautiful premium designs that feel special and useful.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="section-head">
+      <span class="section-tag">Real people</span>
+      <h2>What our buyers say</h2>
+      <p>Kind words from people who love style and comfort.</p>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card hover-up">
+        <p>"The design feels premium and the quality is better than expected."</p>
+        <h4>Riya Sharma</h4>
+        <span>Office buyer</span>
+      </div>
+      <div class="review-card hover-up">
+        <p>"I bought one for college and now I want another for travel too."</p>
+        <h4>Aman Verma</h4>
+        <span>Student</span>
+      </div>
+      <div class="review-card hover-up">
+        <p>"Very clean website, easy shopping experience and nice finishing."</p>
+        <h4>Neha Kapoor</h4>
+        <span>Regular customer</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter reveal">
+    <div class="newsletter-box">
+      <div>
+        <span class="section-tag">Stay updated</span>
+        <h2>Get offers and new bag updates</h2>
+      </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" />
+        <button type="submit" class="btn btn-main">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="register-bottom">
+    <div class="register-bottom-box">
+      <h2>Like our bag collection?</h2>
+      <p>Create your account and start shopping with us.</p>
+      <a href="register.php" class="register-bottom-btn">Register Now</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>BagStore</h3>
+        <p>Modern bags for office, college, travel and everyday life.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <a href="index.php">Home</a>
+        <a href="bags.php">Bags</a>
+        <a href="about.php">About</a>
+        <a href="contact.php">Contact</a>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="product.php">Product</a>
+        <a href="wishlist.php">Wishlist</a>
+        <a href="cart.php">Cart</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: support@bagstore.com</p>
+        <p>Phone: +91 98765 43210</p>
+      </div>
     </div>
   </footer>
 
-  <script>
-    const slides = document.querySelectorAll(".slide");
-    const dots = document.querySelectorAll(".dot");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
+  <div class="toast" id="toast">Added to cart</div>
 
-    let index = 0;
-
-    function showSlide(i) {
-      slides.forEach(s => s.classList.remove("active"));
-      dots.forEach(d => d.classList.remove("active"));
-      slides[i].classList.add("active");
-      dots[i].classList.add("active");
-      index = i;
-    }
-
-    function next() {
-      showSlide((index + 1) % slides.length);
-    }
-
-    function prev() {
-      showSlide((index - 1 + slides.length) % slides.length);
-    }
-
-    nextBtn.addEventListener("click", next);
-    prevBtn.addEventListener("click", prev);
-
-    dots.forEach(d => {
-      d.addEventListener("click", () => showSlide(Number(d.dataset.slide)));
-    });
-
-    setInterval(next, 4500);
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

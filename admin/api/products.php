@@ -1,232 +1,109 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/_auth.php';
+header('Content-Type: application/json; charset=utf-8');
 
-$method = strtoupper((string)($_SERVER['REQUEST_METHOD'] ?? 'GET'));
+require_once __DIR__ . '/../config.php';
 
-function parse_decimal(mixed $value): ?string
+function respond_json(int $status, array $data): void
 {
-    if (is_int($value) || is_float($value)) {
-        return number_format((float)$value, 2, '.', '');
+    http_response_code($status);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    exit;
+}
+
+function make_image_url(?string $image): string
+{
+    $image = trim((string)$image);
+
+    if ($image === '') {
+        return 'https://via.placeholder.com/600x400?text=No+Image';
     }
-    if (!is_string($value)) {
-        return null;
+
+    if (preg_match('~^https?://~i', $image)) {
+        return $image;
     }
-    $v = trim($value);
-    if ($v === '') {
-        return null;
-    }
-    if (!preg_match('/^\d+(\.\d{1,2})?$/', $v)) {
-        return null;
-    }
-    return number_format((float)$v, 2, '.', '');
+
+    return '/SHOP/admin/uploads/' . ltrim($image, '/');
 }
 
 try {
-    $pdo = db();
-    require_admin($pdo);
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+    $categoryId = isset($_GET['category_id']) ? (int)$_GET['category_id'] : 0;
+    $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 100;
+    $limit = max(1, min(200, $limit));
 
-    $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+    if ($id > 0) {
+        $sql = "SELECT p.*, c.name AS category_name
+                FROM products p
+                LEFT JOIN categories c ON c.id = p.category_id
+                WHERE p.id = ? AND p.status = 'Active'
+                LIMIT 1";
 
-    if ($method === 'GET') {
-        if ($id) {
-            $stmt = $pdo->prepare(
-                'SELECT p.*, c.`name` AS `category_name`
-                 FROM `products` p
-                 LEFT JOIN `categories` c ON c.`id` = p.`category_id`
-                 WHERE p.`id` = ?
-                 LIMIT 1'
-            );
-            $stmt->execute([$id]);
-            $row = $stmt->fetch();
-            if (!$row) {
-                respond(404, ['ok' => false, 'error' => 'Product not found']);
-            }
-            respond(200, ['ok' => true, 'product' => $row]);
+        $stmt = mysqli_prepare($conn, $sql);
+        if (!$stmt) {
+            respond_json(500, ['ok' => false, 'error' => 'Prepare failed']);
         }
 
-        $q = trim((string)($_GET['q'] ?? ''));
-        $categoryId = isset($_GET['category_id']) ? (int)$_GET['category_id'] : null;
-        $status = trim((string)($_GET['status'] ?? ''));
+        mysqli_stmt_bind_param($stmt, 'i', $id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $product = $result ? mysqli_fetch_assoc($result) : null;
 
-        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 100;
-        $limit = max(1, min(200, $limit));
-        $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
-        $offset = max(0, $offset);
-
-        $where = [];
-        $params = [];
-
-        if ($q !== '') {
-            $where[] = 'p.`name` LIKE ?';
-            $params[] = '%' . $q . '%';
-        }
-        if ($categoryId) {
-            $where[] = 'p.`category_id` = ?';
-            $params[] = $categoryId;
-        }
-        if ($status !== '') {
-            $where[] = 'p.`status` = ?';
-            $params[] = $status;
+        if (!$product) {
+            respond_json(404, ['ok' => false, 'error' => 'Product not found']);
         }
 
-        $sql = 'SELECT p.*, c.`name` AS `category_name`
-                FROM `products` p
-                LEFT JOIN `categories` c ON c.`id` = p.`category_id`';
-        if ($where) {
-            $sql .= ' WHERE ' . implode(' AND ', $where);
-        }
-        $sql .= ' ORDER BY p.`id` DESC LIMIT ' . $limit . ' OFFSET ' . $offset;
+        $product['image_url'] = make_image_url($product['image'] ?? '');
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($params);
-        $rows = $stmt->fetchAll();
-
-        respond(200, ['ok' => true, 'products' => $rows, 'limit' => $limit, 'offset' => $offset]);
-    }
-
-    if ($method === 'POST') {
-        $data = read_json_body();
-
-        $name = trim((string)($data['name'] ?? ''));
-        $description = trim((string)($data['description'] ?? ''));
-        $price = parse_decimal($data['price'] ?? null);
-        $stock = isset($data['stock']) ? (int)$data['stock'] : null;
-        $status = trim((string)($data['status'] ?? 'Active'));
-        $categoryId = isset($data['category_id']) ? (int)$data['category_id'] : null;
-        $image = trim((string)($data['image'] ?? ''));
-
-        if ($name === '') {
-            respond(422, ['ok' => false, 'error' => 'Name is required']);
-        }
-        if ($price === null) {
-            respond(422, ['ok' => false, 'error' => 'Valid price is required']);
-        }
-        if ($stock === null || $stock < 0) {
-            respond(422, ['ok' => false, 'error' => 'Valid stock is required']);
-        }
-        if ($status === '') {
-            $status = 'Active';
-        }
-
-        $stmt = $pdo->prepare(
-            'INSERT INTO `products` (`category_id`, `name`, `description`, `price`, `stock`, `status`, `image`)
-             VALUES (?, ?, ?, ?, ?, ?, ?)'
-        );
-        $stmt->execute([
-            $categoryId ?: null,
-            $name,
-            $description !== '' ? $description : null,
-            $price,
-            $stock,
-            $status,
-            $image !== '' ? $image : null,
+        respond_json(200, [
+            'ok' => true,
+            'product' => $product
         ]);
-
-        respond(201, ['ok' => true, 'id' => (int)$pdo->lastInsertId()]);
     }
 
-    if ($method === 'PUT') {
-        $data = read_json_body();
-        $id = $id ?: (int)($data['id'] ?? 0);
-        if ($id <= 0) {
-            respond(422, ['ok' => false, 'error' => 'ID is required']);
+    if ($categoryId > 0) {
+        $sql = "SELECT p.*, c.name AS category_name
+                FROM products p
+                LEFT JOIN categories c ON c.id = p.category_id
+                WHERE p.category_id = ? AND p.status = 'Active'
+                ORDER BY p.id DESC
+                LIMIT {$limit}";
+
+        $stmt = mysqli_prepare($conn, $sql);
+        if (!$stmt) {
+            respond_json(500, ['ok' => false, 'error' => 'Prepare failed']);
         }
 
-        $fields = [];
-        $params = [];
-
-        if (array_key_exists('category_id', $data)) {
-            $categoryId = (int)($data['category_id'] ?? 0);
-            $fields[] = '`category_id` = ?';
-            $params[] = $categoryId > 0 ? $categoryId : null;
-        }
-
-        if (array_key_exists('name', $data)) {
-            $name = trim((string)$data['name']);
-            if ($name === '') {
-                respond(422, ['ok' => false, 'error' => 'Name cannot be empty']);
-            }
-            $fields[] = '`name` = ?';
-            $params[] = $name;
-        }
-
-        if (array_key_exists('description', $data)) {
-            $description = trim((string)$data['description']);
-            $fields[] = '`description` = ?';
-            $params[] = $description !== '' ? $description : null;
-        }
-
-        if (array_key_exists('price', $data)) {
-            $price = parse_decimal($data['price']);
-            if ($price === null) {
-                respond(422, ['ok' => false, 'error' => 'Invalid price']);
-            }
-            $fields[] = '`price` = ?';
-            $params[] = $price;
-        }
-
-        if (array_key_exists('stock', $data)) {
-            $stock = (int)$data['stock'];
-            if ($stock < 0) {
-                respond(422, ['ok' => false, 'error' => 'Invalid stock']);
-            }
-            $fields[] = '`stock` = ?';
-            $params[] = $stock;
-        }
-
-        if (array_key_exists('status', $data)) {
-            $status = trim((string)$data['status']);
-            if ($status === '') {
-                respond(422, ['ok' => false, 'error' => 'Invalid status']);
-            }
-            $fields[] = '`status` = ?';
-            $params[] = $status;
-        }
-
-        if (array_key_exists('image', $data)) {
-            $image = trim((string)$data['image']);
-            $fields[] = '`image` = ?';
-            $params[] = $image !== '' ? $image : null;
-        }
-
-        if (!$fields) {
-            respond(422, ['ok' => false, 'error' => 'Nothing to update']);
-        }
-
-        $params[] = $id;
-        $sql = 'UPDATE `products` SET ' . implode(', ', $fields) . ' WHERE `id` = ?';
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($params);
-
-        if ($stmt->rowCount() === 0) {
-            respond(404, ['ok' => false, 'error' => 'Product not found']);
-        }
-        respond(200, ['ok' => true]);
+        mysqli_stmt_bind_param($stmt, 'i', $categoryId);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+    } else {
+        $sql = "SELECT p.*, c.name AS category_name
+                FROM products p
+                LEFT JOIN categories c ON c.id = p.category_id
+                WHERE p.status = 'Active'
+                ORDER BY p.id DESC
+                LIMIT {$limit}";
+        $result = mysqli_query($conn, $sql);
     }
 
-    if ($method === 'DELETE') {
-        $data = read_json_body();
-        $id = $id ?: (int)($data['id'] ?? 0);
-        if ($id <= 0) {
-            respond(422, ['ok' => false, 'error' => 'ID is required']);
+    $products = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $row['image_url'] = make_image_url($row['image'] ?? '');
+            $products[] = $row;
         }
-
-        $stmt = $pdo->prepare('DELETE FROM `products` WHERE `id` = ?');
-        $stmt->execute([$id]);
-        if ($stmt->rowCount() === 0) {
-            respond(404, ['ok' => false, 'error' => 'Product not found']);
-        }
-        respond(200, ['ok' => true]);
     }
 
-    respond(405, ['ok' => false, 'error' => 'Method not allowed']);
+    respond_json(200, [
+        'ok' => true,
+        'products' => $products
+    ]);
 } catch (Throwable $e) {
-    if (isset($pdo) && $pdo instanceof PDO) {
-        respond_server_error_with_db($e, $pdo);
-    }
-    respond_server_error($e);
+    respond_json(500, [
+        'ok' => false,
+        'error' => 'Server error',
+        'message' => $e->getMessage()
+    ]);
 }
-
