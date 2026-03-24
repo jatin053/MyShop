@@ -8,7 +8,7 @@ function db(): PDO
         return $pdo;
     }
 
-    // Defaults for typical WAMP setup. You can override via environment variables.
+    
     $host = getenv('DB_HOST') ?: '127.0.0.1';
     $name = getenv('DB_NAME') ?: 'myshop';
     $user = getenv('DB_USER') ?: 'root';
@@ -20,8 +20,7 @@ function db(): PDO
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
     ]);
-    // Keep app timestamps consistent (JWT/token expiry uses UTC).
     $pdo->exec("SET time_zone = '+00:00'");
 
-    return $pdo;
+           return $pdo;
 }

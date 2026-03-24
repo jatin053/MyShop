@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// Shared mysqli connection for admin pages under `admin/pages/*`.
-// Defaults for typical WAMP setup. You can override via environment variables.
 $dbHost = getenv('DB_HOST') ?: '127.0.0.1';
 $dbName = getenv('DB_NAME') ?: 'myshop';
 $dbUser = getenv('DB_USER') ?: 'root';

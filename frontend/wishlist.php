@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,118 +8,95 @@
 </head>
 <body>
 
- <header class="site-header">
+  <header class="site-header">
     <a href="index.php" class="logo">Bag<span>Store</span></a>
 
     <nav class="nav">
-      <a href="index.php" class="active">Home</a>
+      <a href="index.php">Home</a>
 
       <div class="dropdown">
-        <a href="bags.php" class="drop-btn">
-          Bags <span class="drop-icon">▾</span>
+        <a href="all-bags.php" class="drop-btn">
+          Bags <span class="drop-icon">&#9662;</span>
         </a>
 
         <div class="dropdown-menu">
-          <a href="bags.php?category=all">All Bags</a>
-          <a href="bags.php?category=travel">Travel Bags</a>
-          <a href="bags.php?category=kids">Kids Bags</a>
-          <a href="bags.php?category=school">School Bags</a>
-          <a href="bags.php?category=college">College Bags</a>
-          <a href="bags.php?category=office">Office Bags</a>
-          <a href="bags.php?category=laptop">Laptop Bags</a>
-          <a href="bags.php?category=hand">Hand Bags</a>
-          <a href="bags.php?category=tote">Tote Bags</a>
-          <a href="bags.php?category=gym">Gym Bags</a>
-          <a href="bags.php?category=party">Party Bags</a>
-          <a href="bags.php?category=mini">Mini Bags</a>
-          <a href="bags.php?category=trolley">Trolley Bags</a>
+          <a href="all-bags.php">All Bags</a>
+          <a href="travel-bags.php">Travel Bags</a>
+          <a href="kids-bags.php">Kids Bags</a>
+          <a href="school-bags.php">School Bags</a>
+          <a href="college-bags.php">College Bags</a>
+          <a href="office-bags.php">Office Bags</a>
+          <a href="ladies-bags.php">Ladies Bags</a>
+          <a href="laptop-bags.php">Laptop Bags</a>
+          <a href="hand-bags.php">Hand Bags</a>
+          <a href="tote-bags.php">Tote Bags</a>
+          <a href="gym-bags.php">Gym Bags</a>
+          <a href="party-bags.php">Party Bags</a>
+          <a href="mini-bags.php">Mini Bags</a>
+          <a href="trolley-bags.php">Trolley Bags</a>
         </div>
       </div>
 
       <a href="product.php">Product</a>
-      <a href="wishlist.php">Wishlist</a>
+      <a href="about.php">About</a>
+      <a href="wishlist.php" class="active">Wishlist</a>
       <a href="cart.php">Cart <span class="cart-count">0</span></a>
       <a href="contact.php">Contact</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="login.php" class="auth-btn login-btn">Login</a>
-    </div>
-
-    <div class="nav-actions">
-      <a href="bags.php" class="mini-btn">Shop Now</a>
+      <a href="/Shop/admin/login.php" class="auth-btn login-btn">Login</a>
+      <a href="all-bags.php" class="mini-btn">Shop Now</a>
     </div>
   </header>
 
   <section class="page-banner reveal">
-    <div>
+    <div class="page-banner-content">
       <span class="section-tag">Saved items</span>
       <h1>Your Wishlist</h1>
-      <p>Keep your favorite bags in one simple place.</p>
+      <p>All the bags you saved with the heart button will appear here.</p>
     </div>
   </section>
 
-  <section class="section reveal">
-    <div class="product-grid">
-      <div class="product-card hover-up">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Bag">
-        <div class="product-info">
-          <h3>Classic Brown Bag</h3>
-          <p>Elegant look for daily and premium styling.</p>
-          <div class="price-row"><span class="price">$49</span></div>
-          <div class="card-actions">
-            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
-            <button class="btn btn-main small-btn add-cart" data-name="Classic Brown Bag" data-price="49" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
-          </div>
-        </div>
+  <section class="wishlist-shell reveal">
+    <div class="wishlist-toolbar">
+      <div>
+        <span class="section-tag">Wishlist overview</span>
+        <h2><span id="wishlistCount">0</span> item(s) saved</h2>
+        <p>Keep your favorite products here and move them to cart whenever you are ready.</p>
       </div>
 
-      <div class="product-card hover-up">
-        <img src="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=900&q=80" alt="Bag">
-        <div class="product-info">
-          <h3>Office Leather Bag</h3>
-          <p>Professional, premium and easy to carry.</p>
-          <div class="price-row"><span class="price">$64</span></div>
-          <div class="card-actions">
-            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
-            <button class="btn btn-main small-btn add-cart" data-name="Office Leather Bag" data-price="64" data-image="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card hover-up">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80" alt="Bag">
-        <div class="product-info">
-          <h3>Travel Carry Bag</h3>
-          <p>Spacious style for trips and weekend plans.</p>
-          <div class="price-row"><span class="price">$68</span></div>
-          <div class="card-actions">
-            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
-            <button class="btn btn-main small-btn add-cart" data-name="Travel Carry Bag" data-price="68" data-image="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
-          </div>
-        </div>
+      <div class="wishlist-actions">
+        <a href="all-bags.php" class="btn btn-light">Continue Shopping</a>
+        <button type="button" class="btn btn-main" id="clearWishlistBtn">Clear Wishlist</button>
       </div>
     </div>
+
+    <div id="wishlistItems" class="product-grid wishlist-grid"></div>
   </section>
 
   <footer class="site-footer">
     <div class="footer-grid">
       <div>
         <h3>BagStore</h3>
-        <p>Save, compare and shop your favorite bag styles.</p>
+        <p>Save, compare and shop your favorite bag styles with ease.</p>
       </div>
+
       <div>
         <h4>Pages</h4>
         <a href="index.php">Home</a>
+        <a href="all-bags.php">Bags</a>
         <a href="about.php">About</a>
         <a href="contact.php">Contact</a>
       </div>
+
       <div>
         <h4>Shop</h4>
-        <a href="bags.php">Bags</a>
-        <a href="product.php">Product</a>
+        <a href="selling.php?id=1">Product</a>
+        <a href="wishlist.php">Wishlist</a>
         <a href="cart.php">Cart</a>
       </div>
+
       <div>
         <h4>Contact</h4>
         <p>Email: support@bagstore.com</p>
@@ -132,3 +109,4 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+

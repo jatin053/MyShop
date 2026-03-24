@@ -9,15 +9,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if ((int)($_SESSION['user_id'] ?? 0) > 0) {
-    if (($_SESSION['role'] ?? '') === 'Admin') {
-        header('Location: index.php');
-        exit;
-    }
-    header('Location: website.php');
-    exit;
-}
-
 $errors = [];
 $email = '';
 
@@ -28,6 +19,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'Valid email is required.';
     }
+
     if ($password === '') {
         $errors[] = 'Password is required.';
     }
@@ -36,6 +28,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         try {
             $pdo = db();
             $primaryAdminId = enforce_single_admin($pdo);
+
             $stmt = $pdo->prepare('SELECT `id`, `FullName`, `Email`, `Password`, `RegisterAs` FROM `register` WHERE `Email` = ? LIMIT 1');
             $stmt->execute([$email]);
             $user = $stmt->fetch();
@@ -46,7 +39,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
                 $storedPassword = (string)($user['Password'] ?? '');
                 $passwordOk = password_verify($password, $storedPassword);
 
-                // Fallback for legacy/plaintext passwords (dev only): auto-upgrade to password_hash.
                 if (!$passwordOk && $storedPassword !== '' && hash_equals($storedPassword, $password)) {
                     $passwordOk = true;
                     $newHash = password_hash($password, PASSWORD_DEFAULT);
@@ -61,6 +53,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
             if (!$errors) {
                 $role = ($primaryAdminId !== null && (int)$user['id'] === (int)$primaryAdminId) ? 'Admin' : 'User';
+
                 $_SESSION['user_id'] = (int)$user['id'];
                 $_SESSION['full_name'] = (string)$user['FullName'];
                 $_SESSION['email'] = (string)$user['Email'];
@@ -72,17 +65,18 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
                     'name' => (string)$user['FullName'],
                     'role' => $role,
                     'iat' => time(),
-                    'exp' => time() + 60 * 60 * 24, // 24 hours
+                    'exp' => time() + 60 * 60 * 24,
                 ];
+
                 $jwt = jwt_sign_hs256($claims, jwt_secret());
                 admin_set_admin_jwt_cookie($jwt, (int)$claims['exp']);
 
                 if ($role === 'Admin') {
-                    header('Location: index.php');
+                    header('Location: /Shop/admin/index.php');
                     exit;
                 }
 
-                header('Location: website.php');
+                header('Location: /Shop/frontend/index.php');
                 exit;
             }
         } catch (Throwable $e) {
@@ -101,16 +95,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     <meta charset="UTF-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body class="page-login">
 
 <div class="login-container">
     <h2>Welcome to MyShop</h2>
-   
-    <p >Shop better, faster, and smarter every day.
-    </p>
+    <p>Shop better, faster, and smarter every day.</p>
 
     <?php if ($errors): ?>
         <div style="margin-bottom:14px;padding:12px;border-radius:10px;background:#fef2f2;color:#991b1b;border:1px solid #fecaca;">
@@ -137,9 +128,10 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     </form>
 
     <div class="extra">
-        <p>New user? <a href="register.php">Register</a></p>
+        <p>New user? <a href="/Shop/admin/register.php">Register</a></p>
     </div>
 </div>
 
+<script src="assets/js/admin.js"></script>
 </body>
-</html>   
+</html>

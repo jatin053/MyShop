@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
   <header class="site-header">
     <a href="index.php" class="logo">Bag<span>Store</span></a>
 
@@ -16,93 +15,105 @@
       <a href="index.php" class="active">Home</a>
 
       <div class="dropdown">
-        <a href="bags.php" class="drop-btn">
-          Bags <span class="drop-icon">▾</span>
+        <a href="all-bags.php" class="drop-btn">
+          Bags <span class="drop-icon">&#9662;</span>
         </a>
 
         <div class="dropdown-menu">
-          <a href="all-bags.php?category=all">All Bags</a>
-          <a href="travel-bags.php?category=travel">Travel Bags</a>
-          <a href="kids-bags.php?category=kids">Kids Bags</a>
-          <a href="school-bags.php?category=school">School Bags</a>
-          <a href="college-bags.php?category=college">College Bags</a>
-          <a href="office-bags.php?category=office">Office Bags</a>
-          <a href="ladies-bags.php?category=ladies">Ladies Bags</a>
-          <a href="laptop-bags.php?category=laptop">Laptop Bags</a>
-          <a href="hand-bags.php?category=hand">Hand Bags</a>
-          <a href="tote-bags.php?category=tote">Tote Bags</a>
-          <a href="gym-bags.php?category=gym">Gym Bags</a>
-          <a href="party-bags.php?category=party">Party Bags</a>
-          <a href="mini-bags.php?category=mini">Mini Bags</a>
-          <a href="trolley-bags.php?category=trolley">Trolley Bags</a>
+          <a href="all-bags.php">All Bags</a>
+          <a href="travel-bags.php">Travel Bags</a>
+          <a href="kids-bags.php">Kids Bags</a>
+          <a href="school-bags.php">School Bags</a>
+          <a href="college-bags.php">College Bags</a>
+          <a href="office-bags.php">Office Bags</a>
+          <a href="ladies-bags.php">Ladies Bags</a>
+          <a href="laptop-bags.php">Laptop Bags</a>
+          <a href="hand-bags.php">Hand Bags</a>
+          <a href="tote-bags.php">Tote Bags</a>
+          <a href="gym-bags.php">Gym Bags</a>
+          <a href="party-bags.php">Party Bags</a>
+          <a href="mini-bags.php">Mini Bags</a>
+          <a href="trolley-bags.php">Trolley Bags</a>
         </div>
       </div>
 
       <a href="product.php">Product</a>
+      <a href="about.php">About</a>
       <a href="wishlist.php">Wishlist</a>
       <a href="cart.php">Cart <span class="cart-count">0</span></a>
       <a href="contact.php">Contact</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="login.php" class="auth-btn login-btn">Login</a>
+      <a href="/Shop/admin/login.php" class="auth-btn login-btn">Login</a>
     </div>
 
     <div class="nav-actions">
-      <a href="bags.php" class="mini-btn">Shop Now</a>
+      <a href="all-bags.php" class="mini-btn">Shop Now</a>
     </div>
   </header>
-
-  <section class="slider-section reveal">
-    <div class="slider">
-      <div class="slide active">
-        <div class="slide-text">
-          <span class="small-tag">New arrival</span>
-          <h1>Smart bags made for daily life</h1>
-          <p>Stylish designs for office, college, travel and everyday comfort.</p>
-          <div class="hero-buttons">
-            <a href="bags.php" class="btn btn-main">Shop Collection</a>
-            <a href="about.php" class="btn btn-light">Know Our Story</a>
-          </div>
-        </div>
-        <div class="slide-image">
-          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=80" alt="Bag">
+<section class="slider-full">
+  <div class="slider" id="mainSlider">
+    <div class="slide active">
+      <div class="slide-text">
+        <span class="small-tag">NEW ARRIVAL</span>
+        <h1>Smart bags made for daily life</h1>
+        <p>Stylish designs for office, college, travel and everyday comfort.</p>
+        <div class="slide-buttons">
+          <a href="all-bags.php" class="btn btn-main">Shop Collection</a>
+          <a href="about.php" class="btn btn-light">Know Our Story</a>
         </div>
       </div>
 
-      <div class="slide">
-        <div class="slide-text">
-          <span class="small-tag">Office edit</span>
-          <h1>Premium office bags with clean look</h1>
-          <p>Carry your laptop, notebook and essentials with style and comfort.</p>
-          <div class="hero-buttons">
-            <a href="bags.php" class="btn btn-main">View Office Bags</a>
-            <a href="product.php" class="btn btn-light">View Product</a>
-          </div>
-        </div>
-        <div class="slide-image">
-          <img src="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=1200&q=80" alt="Office bag">
+      <div class="slide-image">
+        <img src="images/image6.jpg" alt="Bag">
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-text">
+        <span class="small-tag">OFFICE EDIT</span>
+        <h1>Office bags with clean and simple style</h1>
+        <p>Carry your laptop, notebook and daily items with comfort and style.</p>
+        <div class="slide-buttons">
+          <a href="office-bags.php" class="btn btn-main">View Office Bags</a>
+          <a href="selling.php?id=4" class="btn btn-light">View Product</a>
         </div>
       </div>
 
-      <div class="slide">
-        <div class="slide-text">
-          <span class="small-tag">Travel line</span>
-          <h1>Travel bags with more space and easy carry</h1>
-          <p>Designed for quick trips, long days and better storage everywhere.</p>
-          <div class="hero-buttons">
-            <a href="bags.php" class="btn btn-main">Explore Travel Bags</a>
-            <a href="contact.php" class="btn btn-light">Talk to Us</a>
-          </div>
-        </div>
-        <div class="slide-image">
-          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80" alt="Travel bag">
+      <div class="slide-image">
+        <img src="images/image4.jpg" alt="Office bag">
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-text">
+        <span class="small-tag">TRAVEL LINE</span>
+        <h1>Travel bags with more space and easy carry</h1>
+        <p>Designed for quick trips, long days and better storage everywhere.</p>
+        <div class="slide-buttons">
+          <a href="travel-bags.php" class="btn btn-main">Explore Travel Bags</a>
+          <a href="contact.php" class="btn btn-light">Talk to Us</a>
         </div>
       </div>
 
-      <button class="slider-arrow prev">&#10094;</button>
-      <button class="slider-arrow next">&#10095;</button>
-      <div class="slider-dots"></div>
+      <div class="slide-image">
+        <img src="images/image3.jpg" alt="Travel bag">
+      </div>
+    </div>
+
+    <button class="slider-arrow prev" type="button" aria-label="Previous slide">&#10094;</button>
+    <button class="slider-arrow next" type="button" aria-label="Next slide">&#10095;</button>
+
+    <div class="slider-dots"></div>
+  </div>
+</section>
+
+    
+  </div>
+</section>
+
+    </div>
     </div>
   </section>
 
@@ -115,7 +126,9 @@
 
     <div class="card-grid four-grid">
       <div class="category-card hover-up">
-        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80" alt="Hand bags">
+        <a href="hand-bags.php">
+          <img src="images/image4.jpg" alt="Hand bags">
+        </a>
         <div class="card-body">
           <h3>Hand Bags</h3>
           <p>Minimal and stylish pieces for daily looks.</p>
@@ -123,7 +136,9 @@
       </div>
 
       <div class="category-card hover-up">
-        <img src="https://images.unsplash.com/photo-1563904095333-b8f73cf2a349?auto=format&fit=crop&w=900&q=80" alt="Backpacks">
+        <a href="college-bags.php">
+          <img src="images/schoolbag1.jpg" alt="Backpacks">
+        </a>
         <div class="card-body">
           <h3>Backpacks</h3>
           <p>Made for college, work and comfort on the move.</p>
@@ -131,7 +146,9 @@
       </div>
 
       <div class="category-card hover-up">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80" alt="Mini bags">
+        <a href="mini-bags.php">
+          <img src="images/minibag1.jpg" alt="Mini bags">
+        </a>
         <div class="card-body">
           <h3>Mini Bags</h3>
           <p>Small size, clean fashion and easy carrying style.</p>
@@ -139,7 +156,9 @@
       </div>
 
       <div class="category-card hover-up">
-        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80" alt="Travel bags">
+        <a href="travel-bags.php">
+          <img src="images/travelbag1.jpg" alt="Travel bags">
+        </a>
         <div class="card-body">
           <h3>Travel Bags</h3>
           <p>More room, stronger body and smooth travel support.</p>
@@ -158,68 +177,76 @@
     <div class="product-grid">
       <div class="product-card hover-up">
         <span class="badge">New</span>
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Brown bag">
+        <a href="selling.php?id=1">
+          <img src="images/schoolbag2.jpg" alt="Classic School Bag">
+        </a>
         <div class="product-info">
-          <h3>Classic Brown Bag</h3>
+          <h3>Classic School Bag</h3>
           <p>Elegant shape with neat inner storage.</p>
           <div class="price-row">
-            <span class="price">$49</span>
-            <span class="old-price">$61</span>
+            <span class="price">â‚¹1499</span>
+            <span class="old-price">â‚¹1999</span>
           </div>
           <div class="card-actions">
-            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
-            <button class="btn btn-main small-btn add-cart" data-name="Classic Brown Bag" data-price="49" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+            <a href="selling.php?id=1" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Classic School Bag" data-price="1499" data-image="images/bag1.jpg">Add to Cart</button>
           </div>
         </div>
       </div>
 
       <div class="product-card hover-up">
         <span class="badge">Top</span>
-        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=80" alt="Black bag">
+        <a href="selling.php?id=2">
+          <img src="https://i.pinimg.com/1200x/b8/0c/17/b80c170441877067dc67b00e32872adb.jpg" alt="Travel Backpack Pro">
+        </a>
         <div class="product-info">
-          <h3>Modern Black Bag</h3>
-          <p>Clean office style with easy laptop carry.</p>
+          <h3>Travel Backpack Pro</h3>
+          <p>Premium backpack with bigger space and laptop support.</p>
           <div class="price-row">
-            <span class="price">$59</span>
-            <span class="old-price">$72</span>
+            <span class="price">â‚¹2499</span>
+            <span class="old-price">â‚¹3199</span>
           </div>
           <div class="card-actions">
-            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
-            <button class="btn btn-main small-btn add-cart" data-name="Modern Black Bag" data-price="59" data-image="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+            <a href="selling.php?id=2" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Travel Backpack Pro" data-price="2499" data-image="images/bag2.jpg">Add to Cart</button>
           </div>
         </div>
       </div>
 
       <div class="product-card hover-up">
-        <span class="badge">-20%</span>
-        <img src="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=900&q=80" alt="Office bag">
+        <span class="badge">Cute</span>
+        <a href="selling.php?id=3">
+          <img src="https://i.pinimg.com/736x/48/00/9f/48009ff92f735624242f4d5c39aa48fc.jpg" alt="Kids Cartoon Bag">
+        </a>
         <div class="product-info">
-          <h3>Office Leather Bag</h3>
-          <p>Sharp design for everyday professional use.</p>
+          <h3>Kids Cartoon Bag</h3>
+          <p>Light, stylish and fun design for school and daily use.</p>
           <div class="price-row">
-            <span class="price">$64</span>
-            <span class="old-price">$80</span>
+            <span class="price">â‚¹999</span>
+            <span class="old-price">â‚¹1399</span>
           </div>
           <div class="card-actions">
-            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
-            <button class="btn btn-main small-btn add-cart" data-name="Office Leather Bag" data-price="64" data-image="https://images.unsplash.com/photo-1506629905607-c2d0d2d73e71?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+            <a href="selling.php?id=3" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Kids Cartoon Bag" data-price="999" data-image="images/bag3.jpg">Add to Cart</button>
           </div>
         </div>
       </div>
 
       <div class="product-card hover-up">
         <span class="badge">Hot</span>
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80" alt="Travel carry bag">
+        <a href="selling.php?id=4">
+          <img src="https://i.pinimg.com/1200x/0d/4e/a2/0d4ea29e909ff24e1207ba265537f9d5.jpg" alt="Office Laptop Bag">
+        </a>
         <div class="product-info">
-          <h3>Travel Carry Bag</h3>
-          <p>Spacious storage for trips and weekend use.</p>
+          <h3>Office Laptop Bag</h3>
+          <p>Sharp design for everyday professional use.</p>
           <div class="price-row">
-            <span class="price">$68</span>
-            <span class="old-price">$81</span>
+            <span class="price">â‚¹2199</span>
+            <span class="old-price">â‚¹2799</span>
           </div>
           <div class="card-actions">
-            <a href="product.php" class="btn btn-light small-btn">Buy Now</a>
-            <button class="btn btn-main small-btn add-cart" data-name="Travel Carry Bag" data-price="68" data-image="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80">Add to Cart</button>
+            <a href="selling.php?id=4" class="btn btn-light small-btn">Buy Now</a>
+            <button class="btn btn-main small-btn add-cart" data-name="Office Laptop Bag" data-price="2199" data-image="https://i.pinimg.com/1200x/49/f8/b8/49f8b817aaa6a75680590c42cbc1a12f.jpg">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -259,7 +286,7 @@
   <section class="section reveal">
     <div class="two-col">
       <div class="image-panel hover-up">
-        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80" alt="Bag detail">
+        <img src="https://i.pinimg.com/736x/9e/90/64/9e90643cd1a9e84e165454cc5b887eea.jpg" alt="Bag detail">
       </div>
       <div class="text-panel">
         <span class="section-tag">Why choose us</span>
@@ -350,13 +377,35 @@
     </div>
   </section>
 
-  <section class="register-bottom">
-    <div class="register-bottom-box">
-      <h2>Like our bag collection?</h2>
-      <p>Create your account and start shopping with us.</p>
-      <a href="register.php" class="register-bottom-btn">Register Now</a>
+  <section class="join-strip">
+  <div class="join-strip-inner">
+    <div class="join-strip-content">
+      <span class="join-strip-tag">BagStore</span>
+      <h2>Find your next favorite bag with a better shopping experience</h2>
+      <p>
+        Create your account to save products, manage your cart faster, and explore
+        our latest styles for office, travel, college, and daily use.
+      </p>
+
+      <div class="join-strip-points">
+        <div class="join-point">Easy wishlist saving</div>
+        <div class="join-point">Fast cart access</div>
+        <div class="join-point">Latest product updates</div>
+      </div>
+
+      <div class="join-strip-actions">
+        <a href="/Shop/admin/register.php" class="join-main-btn">Create Account</a>
+        <a href="all-bags.php" class="join-light-btn">Browse Collection</a>
+      </div>
     </div>
-  </section>
+
+    <div class="join-strip-visual">
+      <div class="join-visual-card">
+        <img src="images/image6.jpg" alt="Bag collection">
+      </div>
+    </div>
+  </div>
+</section>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -367,7 +416,7 @@
       <div>
         <h4>Pages</h4>
         <a href="index.php">Home</a>
-        <a href="bags.php">Bags</a>
+        <a href="all-bags.php">Bags</a>
         <a href="about.php">About</a>
         <a href="contact.php">Contact</a>
       </div>
@@ -386,7 +435,6 @@
   </footer>
 
   <div class="toast" id="toast">Added to cart</div>
-
   <script src="js/script.js"></script>
 </body>
 </html>
